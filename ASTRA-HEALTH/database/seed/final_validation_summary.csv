@@ -1,0 +1,4 @@
+dataset,rows,columns,missing_cells,duplicate_full_rows,domain_checks_passed,domain_checks_failed_or_unavailable,domain_validation_status
+seed,3600,147,0,0,12,0,PASS
+cleaned_sdv,3821,146,0,0,3,9,REVIEW REQUIRED
+corrected_sdv,3821,146,0,0,12,0,PASS

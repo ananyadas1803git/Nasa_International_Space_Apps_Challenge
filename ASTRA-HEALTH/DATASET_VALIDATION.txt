@@ -1,0 +1,31 @@
+ASTRA-HEALTH DATASET VALIDATION
+
+Integrated CSV: astronaut_health_integrated.csv
+Rows: 3,600
+Columns: 147
+Unique composite keys (astronaut_id, mission_id, mission_day): 3,600
+Astronaut IDs: 20 (AST001 through AST020)
+Mission IDs: 1 (SIM_MISSION_001)
+Mission day range: 1 through 180
+Mission phases: Outbound, Cruise, Return
+Missing values: 0
+
+Hazards archive:
+5 CSV files, 3,600 rows each.
+Each hazard CSV has unique astronaut/mission/day/phase keys and complete key coverage against the integrated CSV.
+
+Risks archive:
+17 CSV files, 3,600 rows each.
+Each risk CSV has unique astronaut/mission/day/phase keys and complete key coverage against the integrated CSV.
+
+The app importer uses the integrated CSV as canonical source and stores every source field in each observation payload. The separate hazards.zip and risks.zip files are retained in the package for provenance.
+
+Backend verification performed:
+- Python compileall: passed.
+- Pytest API suite: 7 passed.
+- Dataset import: 3,600 rows, 20 astronaut profiles.
+- API tests cover auth, dashboard counts, longitudinal history, hazard/risk catalogue, 404 handling and CSV export.
+
+Frontend verification performed:
+- TypeScript parser transpile check of all 12 JS/JSX files: zero syntax diagnostics.
+- Vite production build could not be run in this environment because npm registry DNS/network access failed while installing dependencies. Run npm install (or npm ci) in frontend/ on a network-enabled machine, then npm run build.
